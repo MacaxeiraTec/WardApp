@@ -34,9 +34,25 @@ public class Hora {
 		
 	}
 	
-	public String getHorario() {
-		//CONSERTAR: string sai mal formatado se qaualquer elementos tiver apenas 1 digito
-		return horas+":"+minutos+":"+segundos; 
+	public String toString() {
+		String s=""; 
+		if(horas<10) {
+			s+="0"+horas;
+		}else {
+			s+=horas;
+		}
+		if(minutos<10){
+			s+=":0"+minutos;
+		}else {
+			s+=":"+minutos;
+		}
+		if(segundos<10) {
+			s+=":0"+segundos;
+		}else {
+			s+=":"+segundos;
+		}
+		
+		return s; 
 	}
 	
 	public int getSegundos() {

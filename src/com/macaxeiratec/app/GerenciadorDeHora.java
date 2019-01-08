@@ -11,8 +11,8 @@ public class GerenciadorDeHora {
 	int minutos=0;
 	int segundos=0;
 	
-	public void pushHoraAtual() {
-		list.add(new Hora());
+	public Hora getHoraAtual() {
+		return new Hora();
 	}
 	//Calcula a diferença entre duas horas
 	public void diferençaEntreHora(Hora horaInicio,Hora horaFim) {
