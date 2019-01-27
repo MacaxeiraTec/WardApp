@@ -4,15 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GerenciadorDeHora {
-	int iSeg,iMin,iHora,fSeg,fMin,fHora;
-	List<Hora> list=new ArrayList<Hora>();
+	private int iSeg,iMin,iHora,fSeg,fMin,fHora;
 	//Criar classe HoraFlexivel para acomodar essas variáveis abaixo e formatalas corretamente;
-	int horas=0;
-	int minutos=0;
-	int segundos=0;
+	private int horas=0;
+	private int minutos=0;
+	private int segundos=0;
 	
 	public Hora getHoraAtual() {
 		return new Hora();
+	}
+	public String toString() {
+		return horas+" "+" "+minutos+" " + segundos;
 	}
 	//Calcula a diferença entre duas horas
 	public void diferençaEntreHora(Hora horaInicio,Hora horaFim) {
