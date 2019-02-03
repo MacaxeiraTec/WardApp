@@ -23,6 +23,9 @@ public class Action {
 		}
 		
 	}
+	public List<Hora> getHorasEmAcao(){
+		return this.horas;
+	}
 	public void stop(Hora hora) {
 		if(run) {
 			this.horas.add(hora);

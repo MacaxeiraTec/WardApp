@@ -16,6 +16,9 @@ public class GerenciadorDeHora {
 	public String toString() {
 		return horas+" "+" "+minutos+" " + segundos;
 	}
+	public Hora somarHoras() {
+		return null;
+	}
 	//Calcula a diferença entre duas horas
 	public void diferençaEntreHora(Hora horaInicio,Hora horaFim) {
 		inicializaHorario(horaInicio, horaFim);
@@ -62,6 +65,14 @@ public class GerenciadorDeHora {
 			this.horas+=fHora+24-iHora;
 			
 		}else this.horas+=fHora-iHora;
+	}
+	public String getGraficoDaAtividade(Action a) {
+		String message="";
+		List<Hora> lista=a.getHorasEmAcao();
+		for(int x=0;x<lista.size();x+=2) {
+			message+= lista.get(x).toString()+" <--> "+lista.get(x+1).toString()+"\n";
+		}
+		return message;
 	}
 
 }
