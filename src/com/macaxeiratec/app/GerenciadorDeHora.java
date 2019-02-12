@@ -16,15 +16,58 @@ public class GerenciadorDeHora {
 	public String toString() {
 		return horas+" "+" "+minutos+" " + segundos;
 	}
-	public Hora somarHoras() {
-		return null;
+	
+	private void zerarContadores() {
+		this.horas=0;
+		this.minutos=0;
+		this.segundos=0;
 	}
+	public List<Hora> horasAtivasDoAction(List<Hora> horarios){
+		List<Hora> lista=new ArrayList<Hora>();
+		for(int x=0;x<horarios.size();x+=2) {
+			Hora h=this.diferençaEntreHora(horarios.get(x), horarios.get(x+1));
+			lista.add(h);
+		}
+		
+		return lista;
+	}
+		
+	public Hora somarHoras(List<Hora> lista){
+		
+		zerarContadores();
+		for(Hora h:lista) {
+			int x=h.getSegundos()+this.segundos;
+			this.segundos=x%60;
+			this.minutos+=x/60;
+			x=h.getMinutos()+this.minutos;
+			this.minutos=x%60;
+			this.horas+=x/60;
+			this.horas+=h.getHora();
+		}
+		return new Hora(this.horas,this.minutos,this.segundos);
+		
+	}
+	public void somarDuasHoras(Hora h1,Hora h2){
+		
+		zerarContadores();
+		int x=h1.getSegundos()+h2.getSegundos();
+		this.segundos+=x%60;
+		this.minutos+=x/60;
+		x=h1.getMinutos()+h2.getMinutos();
+		this.minutos+=x%60;
+		this.horas+=x/60;
+		this.horas+=h1.getHora()+h2.getHora();
+
+	}
+	
 	//Calcula a diferença entre duas horas
-	public void diferençaEntreHora(Hora horaInicio,Hora horaFim) {
+	public Hora diferençaEntreHora(Hora horaInicio,Hora horaFim) {
+		zerarContadores();
 		inicializaHorario(horaInicio, horaFim);
 		calculaSegundos();
 		calculaMinutos();
 		calculaHoras();
+		return new Hora(this.horas,this.minutos,this.segundos);
 			
 	}
 	//Inicializa as variáveis para fazer os cálculos

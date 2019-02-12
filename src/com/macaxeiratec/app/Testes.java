@@ -1,7 +1,9 @@
 package com.macaxeiratec.app;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 public class Testes {
@@ -20,7 +22,13 @@ public class Testes {
 		Hora hora2=new Hora(00,01,03);
 		GerenciadorDeHora g=new GerenciadorDeHora();
 		g.diferençaEntreHora(hora, hora2);
-		System.out.println(g.toString());
+		List<Hora> horarios=new ArrayList<Hora>();
+		horarios.add(hora);
+		horarios.add(hora2);
+		horarios.add(hora);
+		horarios.add(hora2);
+		h=g.somarHoras(g.horasAtivasDoAction(horarios));
+		System.out.print(h.toString());
 		
 		
 		/*GerenciadorDeHora g=new GerenciadorDeHora();
